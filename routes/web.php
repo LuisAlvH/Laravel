@@ -21,5 +21,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/admin/dashboard', [HomeController::class,'index']);
 Route::get('/vendor/dashboard', [HomeVendorController::class,'index']);
+
+
 require __DIR__.'/auth.php';
 
