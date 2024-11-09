@@ -25,11 +25,11 @@
 
             </div>
             <ul class="sidebar-nav my-5">
- 
+
 
                 <li class="sidebar-item my-4">
-                
-                    <a href="#" class="sidebar-link">
+
+                    <a href="{{ route('vendor.dashboard') }}" class="sidebar-link">
                         <i class="fa-solid fa-house"></i>
                         <span>Inicio</span>
                     </a>
@@ -43,10 +43,13 @@
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="Añadir_mascota_empleado.html" class="sidebar-link">AÑADIR MASCOTA</a>
+
+
+                            <a href="{{ route('vendor.addPet') }}" class="sidebar-link">AÑADIR MASCOTA</a>
+
                         </li>
                         <li class="sidebar-item">
-                            <a href="Ver_mascotas.html" class="sidebar-link">VER MASCOTAS</a>
+                            <a href="{{ route('vendor.viewsPet') }}" class="sidebar-link">VER MASCOTAS</a>
                         </li>
                     </ul>
                 </li>
@@ -59,17 +62,18 @@
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="emitir_factura_empleado.html" class="sidebar-link">EMITIR FACTURA</a>
+
+                            <a href="{{ route('vendor.issueInvoice') }}" class="sidebar-link">EMITIR FACTURA</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="Fac_pagas_impagas_empleado.html" class="sidebar-link">VER FACTURAS </a>
+                            <a href="{{ route('vendor.viewsInvoice') }}" class="sidebar-link">VER FACTURAS </a>
                         </li>
                     </ul>
                 </li>
 
 
                 <li class="sidebar-item my-5">
-                    <a href="PerfilEmpleado.html" class="sidebar-link">
+                    <a href="{{ route('vendor.sellerProfile') }}" class="sidebar-link">
                         <i class="fa-solid fa-user"></i>
                         <span>Mi cuenta</span>
                     </a>
@@ -77,10 +81,22 @@
 
             </ul>
             <div class="sidebar-footer">
-                <a href="../Gestor_usuarios.html" class="sidebar-link">
-                    <i class="lni lni-exit"></i>
-                    <span>Logout</span>
-                </a>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-responsive-nav-link :href=" route('logout')"
+                        onclick="event.preventDefault();
+                                        this.closest('form').submit();" class="sidebar-link">
+
+                        <i class="lni lni-exit"></i>
+                        <span>Logout</span>
+
+
+                    </x-responsive-nav-link>
+                </form>
+
+
             </div>
         </aside>
 
@@ -136,9 +152,22 @@
                                             <div class="dropdown-divider my-1"></div>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="../Gestor_usuarios.html">
-                                                <i class="bx bx-power-off bx-md me-3"></i><span>Logout</span>
-                                            </a>
+
+
+
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+
+                                                <x-responsive-nav-link :href=" route('logout')"
+                                                    onclick="event.preventDefault();
+                                                     this.closest('form').submit();" class="dropdown-item">
+
+                                                    <i class="bx bx-power-off bx-md me-3"></i><span>Logout</span>
+
+
+                                                </x-responsive-nav-link>
+                                            </form>
+
                                         </li>
                                     </ul>
                                 </li>
