@@ -271,37 +271,42 @@ a.sidebar-link:hover{
 }
 
 .fondo {
-    background-image: url('../img/fondo_gestor.jpeg');
-
-    background-size: cover; 
-    background-position: center; 
-    height: 100vh; 
+    background-image: url('/storage/fondo_gestor.jpeg');
+    background-size:cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.titulo_gestor{
+.titulo_gestor {
     font-weight: 700;
     font-size: 3rem;
     color: #CC5500;
-    
+    text-align: center;
 }
-.titulo_gestor2{
-    font-weight: 500; 
+
+.titulo_gestor2 {
+    font-weight: 500;
+    font-size: 2rem;
     color: #003366;
+    text-align: center;
+}
    
     
-}
 .titulo_gestor3{
     letter-spacing: 5px; 
     color: #666666;
 }
-.color_inicioSesion_bton:hover{
-
-    background-color: rgb(255, 127, 80);
-    color: white;
-
+.color_inicioSesion_bton {
+    background-color: rgb(194, 149, 91);
+    border: none;
 }
-.hover_drop_cliente:hover{
-    background-color: rgb(255,193,7);
+
+.color_inicioSesion_bton:hover {
+    background-color: rgb(255, 127, 80);
     color: white;
 }
 
@@ -340,3 +345,18 @@ a.sidebar-link:hover{
     background-color:rgb(220,53,69);
     color: rgb(252, 250, 250); 
 }
+
+.top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.top-right a {
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+
