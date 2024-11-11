@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileClientController;
 use App\Http\Controllers\viewPetsController;
+use App\Http\Controllers\diagnosisController;
+use App\Http\Controllers\clientInvoiceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +27,10 @@ Route::get('/home_client', ClientController::class)->name('home_client');
 Route::get('/clientProfile', ProfileClientController::class)->name('clientProfile');
 
 Route::get('/viewPets', [viewPetsController::class, 'showPets'])->name('viewPets');
+
+Route::get('/pets/{pet_id}/petDiagnosis', [DiagnosisController::class, 'showDiagnosis'])->name('petDiagnosis');
+
+Route::get('/viewInvoices', [clientInvoiceController::class, 'showInvoices'])->name('viewInvoices');
 
 
 //Route::get('/clientProfile', function () {

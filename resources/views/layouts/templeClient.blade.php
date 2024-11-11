@@ -48,7 +48,7 @@
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="factura_cliente.html" class="sidebar-link">VER FACTURAS </a>
+                            <a href="{{route('viewInvoices')}}" class="sidebar-link">VER FACTURAS </a>
                         </li>
                     </ul>
                 </li>
@@ -86,7 +86,7 @@
                                     <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
                                         data-bs-toggle="dropdown">
                                         <div>
-                                            <img src="../img/usser_2.jpg" alt="foto de perfil de cliente"
+                                            <img src="{{asset('storage/usser_1.jpg')}}" alt="foto de perfil de cliente"
                                                 class="rounded-circle imagen_usser">
                                         </div>
                                     </a>

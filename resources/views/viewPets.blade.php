@@ -12,7 +12,9 @@
                     <p>Especie: {{ ucfirst($pet->species) }}</p>
                     <p>Raza: {{ $pet->race }}</p>
                     <p>Fecha de Nacimiento: {{ \Carbon\Carbon::parse($pet->date_of_birth)->format('d/m/Y') }}</p>
-                    <button class="btn btn-info btn-lg color_inicioSesion_bton">Ver Diagnóstico</button>
+                    <a href="{{ route('petDiagnosis', ['pet_id' => $pet->id]) }}
+                    " class="btn btn-info btn-lg color_inicioSesion_bton"> Ver Diagnóstico
+                    </a>
                 </div>
             </div>
         @endforeach
