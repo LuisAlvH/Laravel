@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProfileClientController;
+use App\Http\Controllers\viewPetsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,10 +16,22 @@ Route::get('/templateEmple', function () {
     return view('layouts.templateEmple');
 });
 
-Route::get('/home_client', function () {
-    return view('home_client');
-})->name('home_client');
+//Route::get('/home_client', function () {
+//    return view('home_client');
+//})->name('home_client');
 
+Route::get('/home_client', ClientController::class)->name('home_client');
+
+Route::get('/clientProfile', ProfileClientController::class)->name('clientProfile');
+
+Route::get('/viewPets', [viewPetsController::class, 'showPets'])->name('viewPets');
+
+
+//Route::get('/clientProfile', function () {
+//    return view('clientProfile');
+//})->name('clientProfile');
+
+//Route::get('/profile_client', ProfileClientController::class);
 
 
 Route::get('/dashboard', function () {
@@ -65,6 +80,7 @@ Route::post('/logout', function () {
     Auth::logout();
     return redirect('/'); // 
 })->name('logout');
+
 
 
 require __DIR__.'/auth.php';
