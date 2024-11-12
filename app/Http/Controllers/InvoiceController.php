@@ -12,19 +12,22 @@ use App\Models\Pet;
 class InvoiceController extends Controller
 {
     public function viewAddInvoice(){
-        return view('vendor.IssueInvoice');
-
+        $users = User::where('usertype', 'user')->get();
+        $diagnostics = Diagnosis::all();
+    
+        return view('vendor.IssueInvoice', compact('users', 'diagnostics'));
     }
     public function viewInvoice()
-    {
-        return view('vendor.viewsInvoice');
-    }
+{
+    $users = User::where('usertype', 'user')->get();
+    return view('vendor.viewsInvoice', compact('users'));
+}
 
-    public function createForm()
-    {
-        $users = User::where('usertype', 'user')->get();
-        return view('vendor.issueInvoice', compact('users'));
-    }
+    // public function createForm()
+    // {
+    //     $users = User::where('usertype', 'user')->get();
+    //     return view('vendor.issueInvoice', compact('users'));
+    // }
 
     public function getDiagnostics(Request $request)
     {
@@ -55,6 +58,61 @@ class InvoiceController extends Controller
     return redirect()->route('vendor.issueInvoice')
         ->with('success', 'Factura emitida correctamente.');
 }
+
+public function getInvoices(Request $request)
+{
+    $users = User::where('usertype', 'user')->get();
+    $invoices = [];
+    if ($request->has('client_id') && $request->input('client_id') !== null) {
+        $invoices = Invoice::where('client_id', $request->input('client_id'))->get();
+    }
+    return view('vendor.viewsInvoice', compact('users', 'invoices'));
+}
+
+
+public function show($id)
+{
+    $invoice = Invoice::findOrFail($id);
+    return view('vendor.showInvoice', compact('invoice'));
+}
+
+public function edit($id)
+{
+    $invoice = Invoice::findOrFail($id);
+    $pets = Pet::where('client_id', $invoice->client_id)->pluck('id');
+    $diagnostics = Diagnosis::whereIn('pet_id', $pets)->get();
+    
+    return view('vendor.editInvoice', compact('invoice', 'diagnostics'));
+}
+
+
+public function destroy($id)
+{
+    $invoice = Invoice::findOrFail($id);
+    $invoice->delete();
+    return redirect()->route('vendor.viewsInvoice')->with('success', 'Factura eliminada correctamente.');
+}
+
+public function update(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'diagnosis_id' => 'required|exists:diagnosis,id',
+        'date' => 'required|date',
+        'status' => 'required|in:impaga,pagada,cancelada',
+    ]);
+
+    $invoice = Invoice::findOrFail($id);
+    $invoice->update([
+        'diagnosis_id' => $validatedData['diagnosis_id'],
+        'date' => $validatedData['date'],
+        'status' => $validatedData['status'],
+    ]);
+
+    return redirect()->route('vendor.viewInvoice', $invoice->id)
+        ->with('success', 'Factura actualizada correctamente.');
+}
+
+
     
 
 

@@ -126,7 +126,7 @@
                                     <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
                                         data-bs-toggle="dropdown">
                                         <div>
-                                            <img src="../img/usser_1.jpg" alt="foto de perfil de empleada de la veterinaria" class="rounded-circle imagen_usser">
+                                            <img src="/storage/img/usser_1.jpg" alt="foto de perfil de empleada de la veterinaria" class="rounded-circle imagen_usser">
                                         </div>
                                     </a>
 
@@ -145,7 +145,7 @@
                                             <div class="dropdown-divider my-1"></div>
                                         </li>
                                         <li>
-                                            <x-dropdown-link :href="route('profile.edit')" class="dropdown-item ">
+                                            <x-dropdown-link :href="route('vendor.sellerProfile')" class="dropdown-item ">
                                                 <i class="bx bx-user bx-md me-3"></i><span>MI PERFIL</span>
                                             </x-dropdown-link>
 

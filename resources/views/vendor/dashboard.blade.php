@@ -11,17 +11,17 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../img/vet1.jpg"
+                    <img src="{{ asset('storage/img/vet1.jpg') }}"
                         class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
                         alt="Dos colegas veterinarios atendiendo mascota" width="1000" height="600">
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/vet2.jpg "
+                    <img src="{{ asset('storage/img/vet2.jpg') }}"
                         class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
                         alt="Dos veterinarios luego de operar mascota" width="1000" height="600">
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/vet3.jpg"
+                    <img src="{{ asset('storage/img/vet3.jpg') }}"
                         class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
                         alt="Un veterinario realizando control médico a un perro" width="1000" height="600">
                 </div>

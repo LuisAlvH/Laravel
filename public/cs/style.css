@@ -271,7 +271,7 @@ a.sidebar-link:hover{
 }
 
 .fondo {
-    background-image: url('/storage/fondo_gestor.jpeg');
+    background-image: url("{{ asset('storage/img/fondo_gestor.jpeg') }}");
     background-size:cover;
     background-position: center;
     height: 100vh;
@@ -357,6 +357,21 @@ a.sidebar-link:hover{
     color: #ffffff;
     text-decoration: none;
     margin-left: 10px;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    border-color: #f0ad4e; 
+}
+
+.btn-danger {
+    background-color: #d9534f; 
+    border-color: #d9534f; 
+}
+
+.btn-secondary {
+    background-color: #6c757d; 
+    border-color: #6c757d; 
 }
 
 

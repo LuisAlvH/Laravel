@@ -6,15 +6,15 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('storage/1.jpg') }}" class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
+                        <img src="{{ asset('storage/img/1.jpg') }}" class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
                              alt="Perros y gatos cachorros mirando hacia adelante">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('storage/2.jpg') }}" class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
+                        <img src="{{ asset('storage/img/2.jpg') }}" class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
                              alt="Perros y gatos adultos posando para una foto grupal">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('storage/3.jpg') }}" class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
+                        <img src="{{ asset('storage/img/3.jpg') }}" class="d-block w-100 img-fluid shadow p-3 mb-5 bg-body-tertiary rounded"
                              alt="Distintas razas de perros y gatos posando en hilera">
                     </div>
                 </div>
