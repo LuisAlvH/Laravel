@@ -113,7 +113,8 @@
 
                             <ul class="navbar-nav flex-row align-items-center ms-auto">
                                 <li class="nav-item lh-1 me-4">
-                                    <h2 class="fw-bold text-primary mb-0">¡Bienvenida, alexa!</h2>
+                                    <h2 class="fw-bold text-primary mb-0">¡Bienvenida, <span>{{ Auth::user()->name  }}</span>
+                                    </h2>
                                 </li>
 
 
@@ -133,8 +134,8 @@
                                         <li>
 
                                             <div class="d-flex">
-                                                <div class="flex-grow-1 text-center">
-                                                    <h6>Alexandra</h6>
+                                                <div class="flex-grow-1 text-center text-center">
+                                                    <h6>{{ Auth::user()->name  }}</h6>
                                                     <small class=" text-muted">Empleada</small>
                                                 </div>
                                             </div>
@@ -144,9 +145,10 @@
                                             <div class="dropdown-divider my-1"></div>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="PerfilEmpleado.html">
+                                            <x-dropdown-link :href="route('profile.edit')" class="dropdown-item ">
                                                 <i class="bx bx-user bx-md me-3"></i><span>MI PERFIL</span>
-                                            </a>
+                                            </x-dropdown-link>
+
                                         </li>
                                         <li>
                                             <div class="dropdown-divider my-1"></div>
@@ -158,11 +160,11 @@
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
 
-                                                <x-responsive-nav-link :href=" route('logout')"
+                                                <x-responsive-nav-link :href="route('logout')"
                                                     onclick="event.preventDefault();
                                                      this.closest('form').submit();" class="dropdown-item">
 
-                                                    <i class="bx bx-power-off bx-md me-3"></i><span>Logout</span>
+                                                    <i class="bx bx-power-off bx-md me-4"></i><span>Logout</span>
 
 
                                                 </x-responsive-nav-link>

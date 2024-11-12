@@ -15,9 +15,9 @@ class InvoiceController extends Controller
         return view('vendor.IssueInvoice');
 
     }
-    public function viewInvoice(){
+    public function viewInvoice()
+    {
         return view('vendor.viewsInvoice');
-
     }
 
     public function createForm()
