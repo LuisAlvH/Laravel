@@ -26,5 +26,10 @@ class Pet extends Model
     {
         return $this->belongsTo(User::class, 'client_id');
     }
+
+    public function diagnosis()
+    {
+        return $this->hasMany(Diagnosis::class, 'pet_id');
+    }
 }
 

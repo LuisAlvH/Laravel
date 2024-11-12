@@ -86,7 +86,7 @@
                                     <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
                                         data-bs-toggle="dropdown">
                                         <div>
-                                            <img src="{{asset('storage/usser_1.jpg')}}" alt="foto de perfil de cliente"
+                                            <img src="{{asset('storage/img/usser_1.jpg')}}" alt="foto de perfil de cliente"
                                                 class="rounded-circle imagen_usser">
                                         </div>
                                     </a>

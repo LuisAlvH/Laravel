@@ -8,7 +8,7 @@
 {{-- VER FACTURA--}}
 
 
-<h2>ver factura</h2>
+<h2>Ver Factura</h2>
 
 
 
