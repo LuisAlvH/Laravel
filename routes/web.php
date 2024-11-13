@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileClientController;
@@ -23,18 +24,11 @@ Route::get('/templateEmple', function () {
     return view('layouts.templateEmple');
 });
 
-//Route::get('/home_client', function () {
-//    return view('home_client');
-//})->name('home_client');
-
-
 Route::get('/clientProfile', [ClientController::class, 'showProfile'])->name('clientProfile');
 
 Route::post('/clientProfile/update', [ClientController::class, 'updateProfile'])->name('clientProfile.updateProfile');
 
 Route::get('/home_client', ClientController::class)->name('home_client');
-
-//Route::get('/clientProfile', ProfileClientController::class)->name('clientProfile');
 
 Route::get('/viewPets', [viewPetsController::class, 'showPets'])->name('viewPets');
 
@@ -60,12 +54,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    
-    Route::get('change-password', function () {
-        return view('auth.change-password');
-    })->name('passwordChange');
-
-    
+    Route::get('change-password', ChangePasswordController::class)->name('passwordChange');
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 });
 
