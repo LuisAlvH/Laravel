@@ -10,6 +10,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MascVendedorController;
 use App\Http\Controllers\PerfilUsuarioController;
 use App\Http\Controllers\HomeVendorController;
+use App\Http\Controllers\Auth\PasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 
@@ -26,22 +27,20 @@ Route::get('/templateEmple', function () {
 //    return view('home_client');
 //})->name('home_client');
 
+
+Route::get('/clientProfile', [ClientController::class, 'showProfile'])->name('clientProfile');
+
+Route::post('/clientProfile/update', [ClientController::class, 'updateProfile'])->name('clientProfile.updateProfile');
+
 Route::get('/home_client', ClientController::class)->name('home_client');
 
-Route::get('/clientProfile', ProfileClientController::class)->name('clientProfile');
+//Route::get('/clientProfile', ProfileClientController::class)->name('clientProfile');
 
 Route::get('/viewPets', [viewPetsController::class, 'showPets'])->name('viewPets');
 
 Route::get('/pets/{pet_id}/petDiagnosis', [DiagnosisController::class, 'showDiagnosis'])->name('petDiagnosis');
 
 Route::get('/viewInvoices', [clientInvoiceController::class, 'showInvoices'])->name('viewInvoices');
-
-
-//Route::get('/clientProfile', function () {
-//    return view('clientProfile');
-//})->name('clientProfile');
-
-//Route::get('/profile_client', ProfileClientController::class);
 
 
 Route::get('/dashboard', function () {
@@ -59,6 +58,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware('auth')->group(function () {
+    
+    Route::get('change-password', function () {
+        return view('auth.change-password');
+    })->name('passwordChange');
+
+    
+    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+});
+
+
 
 
 // Route::get('/vendor/add-pet', function () {
@@ -96,13 +107,6 @@ Route::delete('/vendor/invoice/{id}', [InvoiceController::class, 'destroy'])->na
 
 
 
-
-
-
-// Route::get('/vendor/seller-profile', function () {
-//     return view('profile.seller'); 
-// })->name('vendor.sellerProfile');
-
 Route::get('/vendor/seller-profile', [PerfilUsuarioController::class, 'viewAddSeller'])->name('vendor.sellerProfile');
 
 
@@ -117,12 +121,6 @@ require __DIR__.'/auth.php';
 Route::get('/admin/dashboard', [HomeController::class, 'index']);
 
 Route::get('/vendor/dashboard', [HomeVendorController::class, 'index'])->name('vendor.dashboard');
-
-// Route::get('/vendor/viewsPet', [MascVendedorController::class, 'viewPet'])->name('vendor.viewsPet');
-
-// Route::get('/vendor/issueInvoice', [InvoiceController::class, 'viewAddInvoice'])->name('vendor.issueInvoice');
-// Route::get('/vendor/viewsInvoice', [InvoiceController::class, 'viewInvoice'])->name('vendor.viewsInvoice');
-// Route::get('/vendor/sellerProfile', [PerfilUsuarioController::class, 'viewAddSeller'])->name('vendor.sellerProfile');
 
 
 ///MASCOTAS

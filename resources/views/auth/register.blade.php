@@ -40,6 +40,23 @@
                             </div>
 
                             <div class="mb-4">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input id="telefono" type="text" name="telefono" class="form-control form-control-lg" required />
+                                @error('telefono')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input id="direccion" type="text" name="direccion" class="form-control form-control-lg" required />
+                                @error('direccion')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+
+                            <div class="mb-4">
                                 <label for="password" class="form-label">Contraseña</label>
                                 <input id="password" type="password" name="password" class="form-control form-control-lg" required autocomplete="new-password" />
                                 @error('password')
@@ -65,7 +82,7 @@
                 </div>
 
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="{{asset('storage/5.jpg')}}" alt="imagen de registro de usuario" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+                    <img src="{{asset('storage/img/5.jpg')}}" alt="imagen de registro de usuario" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
                 </div>
             </div>
         </div>

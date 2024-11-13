@@ -271,7 +271,7 @@ a.sidebar-link:hover{
 }
 
 .fondo {
-    background-image: url("{{ asset('storage/img/fondo_gestor.jpeg') }}");
+    background-image: url("../storage/img/fondo_gestor.jpeg");
     background-size:cover;
     background-position: center;
     height: 100vh;
@@ -373,5 +373,7 @@ a.sidebar-link:hover{
     background-color: #6c757d; 
     border-color: #6c757d; 
 }
+
+
 
 
