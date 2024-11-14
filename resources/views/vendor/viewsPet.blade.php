@@ -8,6 +8,7 @@
 {{-- ver mascota --}}
 
 
+
 @if(count($allUsser) > 0)
 
 <main class="row my-5">
@@ -44,6 +45,7 @@
 
 @endif
 
+@if(count($Mascotas) > 0)
 <div class="container">
     <div class="card">
         <div class="card header text-center">
@@ -66,7 +68,7 @@
                     <th>{{$mascota->species}}</th>
                     <th>{{$mascota->race}}</th>
                     <th>{{$mascota->date_of_birth}}</th>
-                    <th> <a href="{{ route('vendor.editPet', ['id_registro' => $mascota->id]) }}" style="display:inline-block"><button type=" submit" class="btn btn-danger btn-sm">Editar</button></a>
+                    <th> <a href="{{ route('vendor.editPet', ['id_registro' => $mascota->id]) }}" style="display:inline-block"><button type=" submit" class="btn btn-warning   btn-sm">Editar</button></a>
 
                     </th>
                     <th>
@@ -88,5 +90,11 @@
 
 </div>
 
+@else
+<div class="alert alert-warning d-flex justify-content-center align-items-center py-5 fs-5 ">
+    No tiene mascotas registradas..
+</div>
+
+@endif
 
 @endsection

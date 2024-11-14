@@ -10,7 +10,14 @@
 @if(count($allUsser) > 0)
 
 <main class="row my-5">
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="col d-flex justify-content-center my-5 rounded-5  p-5 ">
+
+
         <form method="get" action="{{ route('vendor.createPet') }}" class="form_mascota">
             @csrf
             <div class="mb-3 w-70">
@@ -39,7 +46,12 @@
 </main>
 @else
 <br>
-<h2 class="text-center">NO HAY CLIENTES</h2>
+
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
 
 @endif
 

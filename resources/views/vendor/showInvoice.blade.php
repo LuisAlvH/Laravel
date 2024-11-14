@@ -4,13 +4,13 @@
 
 @section('content')
 
-<div class="container my-5">
+<div class="container my-5 ">
     <h2>Detalles de la Factura #{{ $invoice->id }}</h2>
 
     @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
 
     <div class="card shadow p-4">
