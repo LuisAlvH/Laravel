@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class PerfilUsuarioController extends Controller
+class ProfileSellerController extends Controller
 {
 
 
@@ -15,7 +15,6 @@ class PerfilUsuarioController extends Controller
         $user = Auth::user();
         return view('vendor.sellerProfile', compact('user'));
     }
-
 
 
 

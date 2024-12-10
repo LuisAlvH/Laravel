@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Diagnosis;
 use App\Models\Pet;
 
 
-class diagnosisController extends Controller
+class DiagnosisSellerController extends Controller
 {
     public function showDiagnosis($pet_id)
     {
@@ -16,5 +15,4 @@ class diagnosisController extends Controller
 
         return view('petDiagnosis', compact('pet', 'diagnoses'));
     }
-
 }

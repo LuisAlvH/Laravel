@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-use View;
 
 class ClientController extends Controller
 {
@@ -40,5 +39,11 @@ class ClientController extends Controller
 
 
         return redirect()->route('clientProfile')->with('success', 'Perfil actualizado exitosamente');
+    }
+
+    public function showInvoices()
+    {
+        $invoices = Invoice::where('client_id', auth()->id())->orderBy('date', 'desc')->get();
+        return view('viewInvoices', compact('invoices'));
     }
 }

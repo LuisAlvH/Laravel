@@ -3,14 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Pet;
 
 
-class viewPetsController extends Controller
+class PetSellerController extends Controller
 {
 
+
+    public function viewAddPet()
+    {
+
+        $allUsser = User::where('usertype', 'user')->get();
+
+
+        return view('vendor.addPet', compact('allUsser'));
+    }
+
+    public function viewCreatePet(Request $request)
+    {
+        $userId = $request->input('userSelec');
+        return view('vendor.createPet', compact('userId'));
+    }
+
+    public function viewPet(Request $request)
+    {
+
+        $allUsser = User::where('usertype', 'user')->get();
+
+        $userId = $request->input('userSelec');
+
+
+        $Mascotas = [];
+        if ($userId !== NULL) {
+            $Mascotas = Pet::where('client_id', $userId)->get();
+        }
+
+        return view('vendor.viewsPet', compact('allUsser', 'Mascotas'));
+    }
 
     public function showPets()
     {
@@ -30,7 +61,7 @@ class viewPetsController extends Controller
             'userId' => 'required|exists:users,id',
         ]);
 
-        // Crear una nueva mascota
+
         $mascota = new Pet();
         $mascota->name = $request->nombre;
         $mascota->species = $request->especie;
@@ -39,7 +70,7 @@ class viewPetsController extends Controller
         $mascota->client_id = $request->userId;
         $mascota->save();
 
-        // Redireccionar con mensaje de éxito
+
         return redirect()->route('vendor.addPet')->with('success', 'Mascota registrada exitosamente');
     }
 
