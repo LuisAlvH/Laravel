@@ -71,6 +71,23 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item my-4">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#multi"
+                        aria-expanded="false" aria-controls="multi">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <span>Diagosticos</span>
+                    </a>
+                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+
+                            <a href="{{ route('vendor.addDiagnosis') }}" class="sidebar-link">EMITIR DIAGNOSTICO</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('vendor.viewsDiagnosis') }}" class="sidebar-link">VER DIAGNOSTICOS</a>
+                        </li>
+                    </ul>
+                </li>
+
 
                 <li class="sidebar-item my-5">
                     <a href="{{ route('vendor.sellerProfile') }}" class="sidebar-link">

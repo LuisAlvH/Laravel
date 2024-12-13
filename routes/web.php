@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeAdminController;
 use App\Http\Controllers\DiagnosisSellerController;
+use App\Http\Controllers\DiagnosisController;
 use App\Http\Controllers\InvoiceSellerController;
 use App\Http\Controllers\PetSellerController;
 use App\Http\Controllers\ProfileSellerController;
@@ -61,6 +62,18 @@ Route::put('/vendor/invoice/{id}', [InvoiceSellerController::class, 'update'])->
 Route::delete('/vendor/invoice/{id}', [InvoiceSellerController::class, 'destroy'])->name('vendor.deleteInvoice');
 Route::get('/vendor/sellerProfile', [ProfileSellerController::class, 'showProfile'])->name('vendor.sellerProfile');
 Route::post('/vendor/sellerProfile', [ProfileSellerController::class, 'updateProfile'])->name('vendor.sellerProfile');
+Route::get('/vendor/add-diagnosis', [DiagnosisController::class, 'viewAddDiagnosis'])->name('vendor.addDiagnosis'); 
+Route::post('/vendor/save-diagnosis', [DiagnosisController::class, 'store'])->name('vendor.saveDiagnosis');
+Route::get('/vendor/get-pets', [DiagnosisController::class, 'getPets'])->name('vendor.getPets');
+Route::get('/vendor/views-diagnosis', [DiagnosisController::class, 'viewDiagnosis'])->name('vendor.viewsDiagnosis');
+Route::get('/vendor/get-pets', [DiagnosisController::class, 'getPets'])->name('vendor.getPets');
+Route::get('/vendor/diagnosis/{id}', [DiagnosisController::class, 'show'])->name('vendor.showDiagnosis');
+Route::get('/vendor/diagnosis/{id}/edit', [DiagnosisController::class, 'edit'])->name('vendor.editDiagnosis');
+Route::put('/vendor/diagnosis/{id}', [DiagnosisController::class, 'update'])->name('vendor.updateDiagnosis');
+Route::delete('/vendor/diagnosis/{id}', [DiagnosisController::class, 'destroy'])->name('vendor.deleteDiagnosis');
+
+
+
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/');

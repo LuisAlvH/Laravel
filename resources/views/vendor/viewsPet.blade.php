@@ -12,6 +12,11 @@
 @if(count($allUsser) > 0)
 
 <main class="row my-5">
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="col d-flex justify-content-center my-5 rounded-5  p-5 ">
         <form method="POST" action="{{ route('vendor.viewsPet') }}" class="form_mascota">
             @csrf

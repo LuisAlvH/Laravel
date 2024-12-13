@@ -38,7 +38,7 @@ class InvoiceSellerController extends Controller
         $validatedData = $request->validate([
             'user_id' => 'required|exists:users,id',
             'diagnosis_id' => 'required|exists:diagnosis,id',
-            'date' => 'required|date',
+            'date' => 'required|date|before_or_equal:today',
         ]);
         $clientId = $validatedData['user_id'];
         $diagnosisId = $validatedData['diagnosis_id'];
@@ -93,7 +93,7 @@ class InvoiceSellerController extends Controller
     {
         $validatedData = $request->validate([
             'diagnosis_id' => 'required|exists:diagnosis,id',
-            'date' => 'required|date',
+            'date' => 'required|date|before_or_equal:today',
             'status' => 'required|in:impaga,pagada,cancelada',
         ]);
 

@@ -36,7 +36,8 @@
                 @enderror
                 <br>
                 <label for="nacimiento" class="form-label my-1 pt-3">Nacimiento</label>
-                <input type="date" name="nacimiento" class="form-control" id="Nacimiento" placeholder="Nacimiento...">
+                <input type="date" name="nacimiento" id="Nacimiento" class="form-control" max="{{ date('Y-m-d') }}">
+                
 
                 @error('nacimiento')
                 <span class="text-danger small ">{{ $message }}</span>
