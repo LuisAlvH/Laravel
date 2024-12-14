@@ -45,7 +45,7 @@ class ClientController extends Controller
     {
         $invoice = Invoice::findOrFail($id);
 
-        $invoice->status = 'Paid';
+        $invoice->status = 'Pagada';
         $invoice->save();
 
         return redirect()->route('viewInvoices')->with('success', 'La factura ha sido abonada');
