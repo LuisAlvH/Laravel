@@ -40,7 +40,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Buscar</button>
+        <button type="submit" class="btn btn-limit botones_emple mt-3">Buscar</button>
     </form>
 
     @if(isset($diagnoses) && $diagnoses->isNotEmpty())

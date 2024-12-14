@@ -31,7 +31,7 @@
         </div>
 
         <div class="mt-3">
-            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="submit" class="btn btn-limit botones_emple">Guardar</button>
             <a href="{{ route('vendor.viewsDiagnosis') }}" class="btn btn-secondary">Cancelar</a>
         </div>
     </form>

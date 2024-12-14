@@ -47,7 +47,7 @@
                         <input type="date" name="date" id="date" class="form-control" max="{{ date('Y-m-d') }}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Agregar Diagnostico</button>
+                    <button type="submit" class="btn btn-limit botones_emple  mt-4">Agregar Diagnostico</button>
                 </form>
             </div>
         </div>
