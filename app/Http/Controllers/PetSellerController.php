@@ -57,7 +57,7 @@ class PetSellerController extends Controller
             'nombre' => 'required|string|max:255',
             'especie' => 'required|string|max:255',
             'raza' => 'required|string|max:255',
-            'nacimiento' => 'required|date',
+            'nacimiento' => 'required|date|before_or_equal:today',
             'userId' => 'required|exists:users,id',
         ]);
 
@@ -92,7 +92,7 @@ class PetSellerController extends Controller
             'nombre' => 'required|string|max:255',
             'especie' => 'required|string|max:255',
             'raza' => 'required|string|max:255',
-            'nacimiento' => 'required|date',
+            'nacimiento' => 'required|date|before_or_equal:today',
         ]);
 
 
@@ -107,7 +107,7 @@ class PetSellerController extends Controller
 
 
 
-        return redirect()->route('vendor.viewsPet');
+        return redirect()->route('vendor.viewsPet')->with('success', 'Mascota actualizada exitosamente');
     }
 
     public function destroy($id_registro)

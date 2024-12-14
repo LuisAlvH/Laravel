@@ -45,7 +45,7 @@
 
                 <div class="form-group mt-4">
                     <label for="date">Fecha:</label>
-                    <input type="date" name="date" id="date" required>
+                    <input type="date" name="date" id="date" class="form-control" max="{{ date('Y-m-d') }}">
                 </div>
 
                 <button type="submit" class="btn btn-limit botones_emple  mt-4">Emitir Factura</button>
