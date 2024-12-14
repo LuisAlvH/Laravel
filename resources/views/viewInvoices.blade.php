@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if (session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 
 @if($invoices->isNotEmpty())
 <div class="container my-5">
@@ -35,6 +41,14 @@
                     </p>
                     <p><strong>Empleado a cargo:</strong> {{ $invoice->employee->name ?? 'No asignado' }}</p>
                     <p><strong>Descripción del diagnóstico:</strong> {{ $invoice->diagnosis->description ?? 'No disponible' }}</p>
+                    
+                    @if ($invoice->status === 'impaga')
+                    <form action="{{route('invoices.markPaid', $invoice->id)}}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="btn btn-success mt-3">Pagar Factura</button>
+                    </form>    
+                    @endif
                 </div>
             </div>
         </div>
