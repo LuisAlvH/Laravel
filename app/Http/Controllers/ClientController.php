@@ -41,13 +41,9 @@ class ClientController extends Controller
         return redirect()->route('clientProfile')->with('success', 'Perfil actualizado exitosamente');
     }
 
-    public function markAsPaid($id)
+    public function payInvoice($id)
     {
         $invoice = Invoice::findOrFail($id);
-
-        //if ($invoice->status === 'Paid') {
-            //return redirect()->back()->with('error', 'La factura ya está marcada como pagada.');
-        //}
 
         $invoice->status = 'Paid';
         $invoice->save();

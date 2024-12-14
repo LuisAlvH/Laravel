@@ -43,7 +43,7 @@
                     <p><strong>Descripción del diagnóstico:</strong> {{ $invoice->diagnosis->description ?? 'No disponible' }}</p>
                     
                     @if ($invoice->status === 'impaga')
-                    <form action="{{route('invoices.markPaid', $invoice->id)}}" method="POST">
+                    <form action="{{route('invoices.payInvoice', $invoice->id)}}" method="POST">
                         @csrf
                         @method('PATCH')
                         <button type="submit" class="btn btn-success mt-3">Pagar Factura</button>

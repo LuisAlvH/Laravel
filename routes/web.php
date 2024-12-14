@@ -31,7 +31,7 @@ Route::get('/home_client', ClientController::class)->name('home_client');
 Route::get('/viewPets', [PetSellerController::class, 'showPets'])->name('viewPets');
 Route::get('/pets/{pet_id}/petDiagnosis', [DiagnosisSellerController::class, 'showDiagnosis'])->name('petDiagnosis');
 Route::get('/viewInvoices', [ClientController::class, 'showInvoices'])->name('viewInvoices');
-Route::patch('/invoices/{id}/mark-paid', [ClientController::class, 'markAsPaid'])->name('invoices.markPaid');
+Route::patch('/invoices/{id}/mark-paid', [ClientController::class, 'payInvoice'])->name('invoices.payInvoice');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
